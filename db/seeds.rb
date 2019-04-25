@@ -9,5 +9,7 @@ User.destroy_all
 Employee.destroy_all
 
 User.create!(email: "jeanbon@gmail.com", password: "123456")
-Employee.create!(name: "Bonnefont", surname:"LM", position:"PO", summary: "Bon gars sur")
+lm = Employee.create!(name: "Bonnefont", surname:"LM", position:"PO", summary: "Bon gars sur")
+lm.remote_photo_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Flickr_-_nicogenin_-_66%C3%A8me_Festival_de_Venise_%28Mostra%29_-_Sylvester_Stallone_%2826%29.jpg/220px-Flickr_-_nicogenin_-_66%C3%A8me_Festival_de_Venise_%28Mostra%29_-_Sylvester_Stallone_%2826%29.jpg"
+lm.save!
 
