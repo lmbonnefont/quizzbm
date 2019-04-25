@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-
+    raise
   end
 
   def index
