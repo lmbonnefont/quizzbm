@@ -5,11 +5,11 @@ class EmployeesController < ApplicationController
 
   def create
     Employee.create(employee_params)
-    redirect_to root_path
+    redirect_to employees_path
   end
 
   def index
-
+    @employees = Employee.all
   end
 
   private
