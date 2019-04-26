@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'page#home'
+  root to: 'employees#index'
 
   resources :questions, only: [ :new, :create, :show, :index]
   post "questioncheck", to: "questions#check"
