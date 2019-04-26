@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_26_002613) do
+ActiveRecord::Schema.define(version: 2019_04_26_075452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.bigint "employee_id"
+    t.bigint "question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employee_id"], name: "index_answers_on_employee_id"
+    t.index ["question_id"], name: "index_answers_on_question_id"
+  end
 
   create_table "employees", force: :cascade do |t|
     t.string "name"
@@ -40,10 +49,13 @@ ActiveRecord::Schema.define(version: 2019_04_26_002613) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.text "answered_questions"
+    t.integer "current_question"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "employees"
+  add_foreign_key "answers", "questions"
 end

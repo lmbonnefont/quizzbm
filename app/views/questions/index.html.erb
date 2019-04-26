@@ -1,3 +1,7 @@
-<%= simple_form_for :question, url: questioncheck_path do |f| %>
-  <%= f.submit "Save", class: "btn btn-primary"  %>
-<% end %>
+<div class="wrapper">
+  <%= simple_form_for [@question,@answer], url: questioncheck_path do |f| %>
+    <%= f.input :employee, as: :radio_buttons, collection: @possible_answers, label: @question.label%>
+    <%= f.submit "Save", class: "btn btn-primary"  %>
+  <% end %>
+</div>
+
