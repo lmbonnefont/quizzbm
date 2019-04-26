@@ -21,16 +21,18 @@ class QuestionsController < ApplicationController
     # arr.sample
     # @possible_answers.push(arr.first.name)
     employees = Employee.all
-    @possible_answers = [@question.correct_answer.name, employees.sample.name]
+    employee = employees.sample
+    @possible_answers = ["#{@question.correct_answer.surname} #{@question.correct_answer.name}", "#{employee.surname} #{employee.name}"]
     @possible_answers.shuffle
   end
 
     def check
       answer_user = params[:answer][:employee]
       current_question = Question.find(current_user.current_question)
-      correct_answer = current_question.correct_answer.name
+      correct_answer = "#{current_question.correct_answer.surname} #{current_question.correct_answer.name}"
       if answer_user == correct_answer
         current_user.answered_questions.push(current_question.id)
+        current_user.save
         redirect_to employees_path
       else
         redirect_to questions_path
