@@ -33,6 +33,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       # t.datetime :locked_at
 
       t.text :answered_questions
+      t.integer :current_question
       t.timestamps null: false
     end
 
