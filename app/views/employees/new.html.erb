@@ -1,9 +1,13 @@
-<%= simple_form_for @employee do |f| %>
-  <%= f.input :name %>
-  <%= f.input :surname %>
-  <%= f.input :position %>
-  <%= f.input :summary %>
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
-  <%= f.button :submit %>
-<% end %>
+<div class="wrapper center">
+  <div class="question">
+    <%= simple_form_for @employee do |f| %>
+      <%= f.input :name %>
+      <%= f.input :surname %>
+      <%= f.input :position %>
+      <%= f.input :summary %>
+      <%= f.input :photo %>
+      <%= f.input :photo_cache, as: :hidden %>
+      <%= f.button :submit, "Créer un nouveau backmaker", class: "btn-treehouse" %>
+    <% end %>
+  </div>
+</div>
