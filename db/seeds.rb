@@ -23,6 +23,7 @@ praty = Employee.create!(name: "Praty", surname: "David", position: "Product des
 waza = Employee.create!(name: "Waza", surname: "Alex", position: "Product designer", summary:"Insane man", remote_photo_url: "https://trello-attachments.s3.amazonaws.com/5a21d3de988adb77a283b703/5a21e71d060eebdbe709e619/7c710ef3cc9ba33eb9e2159eb8943f28/bim.jpg")
 nassima = Employee.create!(name: "Ouharani", surname: "Nassima", position: "Product designer", summary:"Nass Nass", remote_photo_url: "https://trello-attachments.s3.amazonaws.com/5c618e184ff7b9772c7bb77f/387x395/3c46730f127f5114bb673f3b58174b3a/Nassima.jpg")
 
+
 Question.create!(label: "Who finished a night full of alcohol in Lithuania with my band in a basement surrounded by many girls and a Russian mafia guy (and I managed to escape before anything weird happen) #Hostel", correct_answer: tony)
 Question.create!(label: "When I was 7, at the end of the year’s school, there was a party and we were supposed to sing in front of all our parents. I was nervous, and I don’t know why, I took the mic, and say “Hello… jerks.”. Parents booed me, and after the song I was so ashamed I ran away for the entire day. ", correct_answer: praty)
 Question.create!(label: "The very first day of my one-week Mexico travel, I get red and burned like you could rarely see this, I had to spend the rest of the trip under an umbrella.", correct_answer: valoche)
