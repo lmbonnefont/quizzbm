@@ -6,9 +6,9 @@
 
 
         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path employee.photo, height: 300, width: 400, crop: :fill, gravity: :face %>');">
-          <div class="card-category"><%= employee.surname %></div>
+          <div class="card-category"><%= employee.name %></div>
           <div class="card-description">
-            <h2><%= employee.name %></h2>
+            <h2><%= employee.surname %></h2>
             <p> <%= employee.position %></p>
 
           </div>
