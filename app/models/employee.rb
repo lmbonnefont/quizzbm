@@ -1,4 +1,4 @@
 class Employee < ApplicationRecord
   mount_uploader :photo, PhotoUploader
-  has_many :questions, dependent: :destroy
+  has_many :questions
 end

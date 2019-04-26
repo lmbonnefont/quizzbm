@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 2019_04_26_002613) do
     t.string "surname"
     t.string "position"
     t.string "summary"
-    t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
@@ -40,6 +39,7 @@ ActiveRecord::Schema.define(version: 2019_04_26_002613) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.text "answered_questions"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
