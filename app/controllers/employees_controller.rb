@@ -10,6 +10,12 @@ class EmployeesController < ApplicationController
 
   def index
     @employees = Employee.all
+
+    if current_user.answered_questions.length == Question.all.length
+      @questions_available = false
+    else
+      @questions_available = true
+    end
   end
 
   private

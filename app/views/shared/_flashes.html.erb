@@ -6,6 +6,7 @@
     </button>
   </div>
 <% end %>
+
 <% if correct %>
   <div class="alert correct alert-warning alert-dismissible fade show m-1" role="alert">
     <%= correct %>
@@ -14,6 +15,7 @@
     </button>
   </div>
 <% end %>
+
 <% if incorrect %>
   <div class="alert incorrect alert-warning alert-dismissible fade show m-1" role="alert">
     <%= incorrect %>
@@ -22,4 +24,14 @@
     </button>
   </div>
 <% end %>
+
+<% if error %>
+  <div class="alert incorrect alert-warning alert-dismissible fade show m-1" role="alert">
+    <%= error %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end %>
+
 
