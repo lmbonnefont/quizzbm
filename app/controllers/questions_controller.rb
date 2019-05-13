@@ -1,12 +1,13 @@
 class QuestionsController < ApplicationController
-  def show
+    before_action :questions_available?
+
+  def questions_available?
+    if current_user.answered_questions.length == Question.all.length
+      flash[:error] = "You have already answered all the questions. Ask the King of ragots for more secrets!"
+      redirect_to employees_path
+    end
   end
 
-  def new
-  end
-
-  def create
-  end
 
   def index
     user = current_user
