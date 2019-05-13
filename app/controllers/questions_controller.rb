@@ -29,8 +29,10 @@ class QuestionsController < ApplicationController
       if answer_user == correct_answer
         current_user.answered_questions.push(current_question.id)
         current_user.save
-        redirect_to employees_path
+        flash[:correct] = "Correct, Good job! Keep going!"
+        redirect_to questions_path
       else
+        flash[:incorrect] = "Wrong! Try Again!"
         redirect_to questions_path
       end
     end
