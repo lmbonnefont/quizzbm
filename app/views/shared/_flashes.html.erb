@@ -6,11 +6,20 @@
     </button>
   </div>
 <% end %>
-<% if alert %>
-  <div class="alert alert-warning alert-dismissible fade show m-1" role="alert">
-    <%= alert %>
+<% if correct %>
+  <div class="alert correct alert-warning alert-dismissible fade show m-1" role="alert">
+    <%= correct %>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
 <% end %>
+<% if incorrect %>
+  <div class="alert incorrect alert-warning alert-dismissible fade show m-1" role="alert">
+    <%= incorrect %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end %>
+
