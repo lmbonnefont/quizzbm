@@ -16,11 +16,7 @@ class QuestionsController < ApplicationController
     user.current_question = @question.id
     user.save
     @answer = Answer.new
-    # @possible_answers = [@question.correct_answer.name]
-    # arr = Employee.where.not(id: @possible_answers)
-    # arr.sample
-    # @possible_answers.push(arr.first.name)
-    employees = Employee.all
+    employees = Employee.where.not(id: @question.correct_answer.id)
     employee = employees.sample
     @possible_answers = ["#{@question.correct_answer.surname} #{@question.correct_answer.name}", "#{employee.surname} #{employee.name}"]
     @possible_answers.shuffle
