@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 2019_04_26_075452) do
     t.datetime "remember_created_at"
     t.text "answered_questions"
     t.integer "current_question"
+    t.integer "total_attempts", default: 0
+    t.float "score", default: 0.0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

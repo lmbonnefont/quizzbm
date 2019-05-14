@@ -1,16 +1,7 @@
-<!-- <div class="wrapper margintop center">
-  <div class="question">
-    <%= simple_form_for [@question,@answer], url: questioncheck_path do |f| %>
-      <%= f.input :employee, as: :radio_buttons, collection: @possible_answers, label: @question.label%>
-      <%= f.submit "Save", class: "btn btn-primary", label: "Valider"  %>
-    <% end %>
-  </div>
-</div>
-
- -->
 
 
 <div class="wrapper margintop center">
+
   <div class="form-post">
 
     <%= simple_form_for [@question,@answer], url: questioncheck_path do |f| %>
@@ -36,6 +27,14 @@
       </div>
       <%= f.submit "Save", class: "btn btn-primary"  %>
     <% end %>
+  </div>
+
+  <div class="score-container">
+    <div class="score">
+      <p>Score</p>
+      <p><%= @user.answered_questions.length %>/<%= @user.total_attempts %></p>
+    </div>
+
   </div>
 </div>
 
