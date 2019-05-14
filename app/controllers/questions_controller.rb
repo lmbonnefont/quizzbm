@@ -20,7 +20,7 @@ class QuestionsController < ApplicationController
     employees = Employee.where.not(id: @question.correct_answer.id)
     employee = employees.sample
     @possible_answers = ["#{@question.correct_answer.surname} #{@question.correct_answer.name}", "#{employee.surname} #{employee.name}"]
-    @possible_answers.shuffle
+    @possible_answers.shuffle!
   end
 
     def check
