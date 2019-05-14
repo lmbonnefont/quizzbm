@@ -34,6 +34,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       t.text :answered_questions
       t.integer :current_question
+      t.integer :total_attempts, default: 0
+      t.float :score, default: 0
+
       t.timestamps null: false
     end
 
