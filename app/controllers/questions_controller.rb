@@ -25,6 +25,7 @@ class QuestionsController < ApplicationController
 
     def check
       answer_user = params[:answer][:employee]
+
       current_question = Question.find(current_user.current_question)
       correct_answer = "#{current_question.correct_answer.surname} #{current_question.correct_answer.name}"
       if answer_user == correct_answer
