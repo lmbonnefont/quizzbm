@@ -1,2 +1,9 @@
-<h1>Question#new</h1>
-<p>Find me in app/views/question/new.html.erb</p>
+<div class="wrapper center margintop">
+  <div class="question">
+    <%= simple_form_for @question do |f| %>
+      <%= f.input :label %>
+      <%= f.input :correct_answer, collection: @employee %>
+      <%= f.button :submit, class: "btn-treehouse" %>
+    <% end %>
+  </div>
+</div>
