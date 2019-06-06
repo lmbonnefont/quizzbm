@@ -18,6 +18,10 @@ class EmployeesController < ApplicationController
     end
   end
 
+  def fame
+    @users = User.order(score: :desc)
+  end
+
   private
 
   def employee_params

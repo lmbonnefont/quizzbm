@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
   end
 
 
-  def index
+  def show
     @user = current_user
     answered = @user.answered_questions
     questions = Question.where.not(id: answered) #On trouve une question qui n'a pas encore été répondue par le user
@@ -25,27 +25,24 @@ class QuestionsController < ApplicationController
     @possible_answers.shuffle! #On mélange le tableau pour que la bonne réponse ne soit pas ts en 1ere position
   end
 
-    def check
+  def check
+    answer_user = params[:answer][:employee]
+    current_question = Question.find(current_user.current_question)
+    correct_answer = "#{current_question.correct_answer.surname} #{current_question.correct_answer.name}" #On compare la réponse du user avec la réponse correcte. Un peu dégueu. A refacto
 
+    if answer_user == correct_answer
+      current_user.answered_questions.push(current_question.id)
+      flash[:correct] = "Correct, Good job! Keep going!"
 
-
-      answer_user = params[:answer][:employee]
-      current_question = Question.find(current_user.current_question)
-      correct_answer = "#{current_question.correct_answer.surname} #{current_question.correct_answer.name}" #On compare la réponse du user avec la réponse correcte. Un peu dégueu. A refacto
-
-      if answer_user == correct_answer
-        current_user.answered_questions.push(current_question.id)
-        flash[:correct] = "Correct, Good job! Keep going!"
-
-      else
-        flash[:incorrect] = "Wrong! Try Again!"
-      end
-
-      current_user.total_attempts += 1
-      current_user.score = current_user.answered_questions.length.fdiv(current_user.total_attempts) #On update le score du user (1 essai en plus)
-      current_user.save
-
-      redirect_to questions_path
+    else
+      flash[:incorrect] = "Wrong! Try Again!"
     end
+
+    current_user.total_attempts += 1
+    current_user.score = current_user.answered_questions.length.fdiv(current_user.total_attempts) #On update le score du user (1 essai en plus)
+    current_user.save
+
+    redirect_to question_path(1)
+  end
 
 end
