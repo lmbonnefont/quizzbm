@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :questions, only: [ :new, :create, :show, :index]
   post "questioncheck", to: "questions#check"
+  get "employeehalloffame", to: "employees#fame"
 
   resources :employees, only: [:new, :create, :index]
 

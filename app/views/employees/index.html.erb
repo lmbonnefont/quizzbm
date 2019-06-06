@@ -21,7 +21,7 @@
 <div class="wrapper margintop spacearound">
   <%= link_to "Create a new employee", new_employee_path, class: "btn-treehouse" %>
   <% if @questions_available %>
-    <%= link_to "Take a quizz", questions_path, class: "btn-treehouse" %>
+    <%= link_to "Take a quizz", question_path(1), class: "btn-treehouse" %>
   <% else %>
      <p>You already answered all questions available</p>
   <% end %>
